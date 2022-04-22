@@ -1,5 +1,5 @@
 {% set name = "maup" %}
-{% set version = "0.7" %}
+{% set version = "1.0.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a8e45c71af8263ef7039fb747bfe9706cf4e6b1fc3393d21284416b426974cb1
+  sha256: e0eaaa9e2e8b5550f2bab8a10590734fb67de520efc5501232d1d06b6862cc55
 
 build:
   noarch: python
@@ -16,14 +16,16 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python >=3.7.1
     - pip
+    - poetry
   run:
+    - numpy
     - pandas
-    - shapely
     - geopandas
+    - shapely
     - tqdm
-    - python >=3.6
+    - python >=3.7.1
 
 test:
   imports:
